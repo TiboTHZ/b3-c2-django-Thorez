@@ -1,0 +1,7 @@
+<!-- gestion_sites/templates/gestion_sites/modifier_site.html -->
+<h2>Modifier le site</h2>
+<form method="post" action="{% url 'modifier_site' pk=site.pk %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Modifier</button>
+</form>
