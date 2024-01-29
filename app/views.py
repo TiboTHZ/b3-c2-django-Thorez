@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Site, SiteForm, SiteUpdateForm
 
 def liste_sites(request):
@@ -27,3 +27,8 @@ def modifier_site(request, site_id):
         form = SiteUpdateForm(instance=site)
 
     return render(request, 'sites/modifier_site.html', {'form': form, 'site': site})
+
+def supprimer_site(request, site_id):
+    site = get_object_or_404(Site, pk=site_id)
+    site.delete()
+    return redirect('liste_sites')

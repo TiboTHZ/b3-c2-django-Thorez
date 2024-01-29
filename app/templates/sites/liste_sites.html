@@ -43,7 +43,6 @@
         }
 
         li a {
-            background-color: #007BFF;
             color: #fff;
             padding: 8px 12px;
             text-decoration: none;
@@ -66,6 +65,14 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .button_modify {
+            background-color: #007BFF;
+        }
+
+        .button_delete {
+            background-color: #d72a2a;
+        }
     </style>
 </head>
 
@@ -79,7 +86,8 @@
                 URL: {{ site.url }}<br>
                 Identifiant: {{ site.identifiant }}<br>
                 Mot de passe: {{ site.mot_de_passe }}<br>
-                <a href="{% url 'modifier_site' site.id %}">Modifier</a>
+                <a class="button_modify" href="{% url 'modifier_site' site.id %}">Modifier</a>
+                <a class="button_delete" href="{% url 'supprimer_site' site.id %}">Supprimer</a>
             </li>
             {% endfor %}
         </ul>
