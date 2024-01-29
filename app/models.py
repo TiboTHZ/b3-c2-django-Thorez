@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 
 class Site(models.Model):
@@ -8,3 +9,13 @@ class Site(models.Model):
 
     def __str__(self):
         return self.nom
+
+class SiteForm(forms.ModelForm):
+    class Meta:
+        model = Site
+        fields = ['nom', 'url', 'identifiant', 'mot_de_passe']
+
+class SiteUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Site
+        fields = ['nom', 'url', 'identifiant', 'mot_de_passe']
