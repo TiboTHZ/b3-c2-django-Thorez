@@ -46,6 +46,7 @@
                 <th>URL</th>
                 <th>Identifiant</th>
                 <th>Mot de passe</th>
+                <th>Modifier le site</th>
             </tr>
         </thead>
         <tbody>
@@ -55,6 +56,7 @@
                 <td>{{ site.url }}</td>
                 <td>{{ site.identifiant }}</td>
                 <td>{{ site.mot_de_passe }}</td>
+                <a href="{% url 'modifier_site' site.id %}">Modifier</a>
             </tr>
             {% endfor %}
         </tbody>
