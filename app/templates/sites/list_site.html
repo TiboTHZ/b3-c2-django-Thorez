@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Liste des Sites</title>
+</head>
+
+<body>
+    <h1>Liste des Sites</h1>
+    <ul>
+        {% for site in sites %}
+        <li>
+            <strong>{{ site.nom }}</strong><br>
+            URL: {{ site.url }}<br>
+            Identifiant: {{ site.identifiant }}<br>
+            Mot de passe: {{ site.mot_de_passe }}<br>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
