@@ -79,6 +79,7 @@
 <body>
     <h1>Liste des Sites</h1>
     <div class="content-container">
+        <a href="{% url 'exporter_csv' %}" class="export-btn">Exporter au format CSV</a>
         <ul>
             {% for site in sites %}
             <li>
