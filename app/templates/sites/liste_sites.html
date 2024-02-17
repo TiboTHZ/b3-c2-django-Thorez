@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Liste des Sites</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        li a {
+            color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        li a:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button_modify {
+            background-color: #007BFF;
+        }
+
+        .button_delete {
+            background-color: #d72a2a;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Liste des Sites</h1>
+    <div class="content-container">
+        <a href="{% url 'exporter_csv' %}" class="export-btn">Exporter au format CSV</a>
+        <ul>
+            {% for site in sites %}
+            <li>
+                <strong>{{ site.nom }}</strong><br>
+                URL: {{ site.url }}<br>
+                Identifiant: {{ site.identifiant }}<br>
+                Mot de passe: {{ site.mot_de_passe }}<br>
+                <a class="button_modify" href="{% url 'modifier_site' site.id %}">Modifier</a>
+                <a class="button_delete" href="{% url 'supprimer_site' site.id %}">Supprimer</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{% url 'ajout_site' %}">Ajouter un nouveau site</a>
+    </div>
+</body>
+
+</html>
